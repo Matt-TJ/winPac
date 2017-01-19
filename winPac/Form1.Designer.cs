@@ -40,6 +40,7 @@
             this.在此新增ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.创建子节点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnLoad = new System.Windows.Forms.Button();
             this.cmsNode.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +83,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
-            this.button2.Text = "删除节点";
+            this.button2.Text = "生成";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -142,11 +143,22 @@
             this.textBox1.Size = new System.Drawing.Size(46, 21);
             this.textBox1.TabIndex = 5;
             // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(487, 33);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(75, 23);
+            this.btnLoad.TabIndex = 6;
+            this.btnLoad.Text = "载入...";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 431);
+            this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.rtbDet);
             this.Controls.Add(this.button2);
@@ -174,6 +186,7 @@
         private System.Windows.Forms.ToolStripMenuItem 在此新增ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 创建子节点ToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnLoad;
     }
 }
 

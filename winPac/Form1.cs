@@ -160,5 +160,11 @@ namespace winPac
             ex.trExXml();
             
         }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            treeViewExXML ex = new treeViewExXML(treeView1);
+            ex.XMLToTree(treeView1);   
+        }
     }
 }

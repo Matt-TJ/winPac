@@ -20,6 +20,7 @@ namespace winPac
         public treeViewExXML(TreeView tr)
         {
             myTreeView = tr;
+            textDoc = new XmlDocument();
         }
 
         public static void writeXml()
@@ -88,7 +89,7 @@ namespace winPac
 
 
             //创建XMLDocument对象
-            textDoc = new XmlDocument();
+//            textDoc = new XmlDocument();
             textDoc.Load("E:\\Alex\\treeXml.xml");
                 //选中根节点
             XmlElement xmlNode = textDoc.CreateElement(myTreeView.Nodes[0].Text);
@@ -117,6 +118,44 @@ namespace winPac
                 }
             }
             textDoc.Save("E:\\Alex\\treeXml.xml");
+            return 0;
+        }
+
+        public int XMLToTree(TreeView tree)
+        {
+            myTreeView = tree;
+            xmlFilePath = "E:\\Alex\\treeXml.xml";
+
+            //载入xml文档
+            textDoc.Load(xmlFilePath);
+            XmlNode root = textDoc.SelectSingleNode("TheRoot");
+
+            foreach(XmlNode subXmlNode in root.ChildNodes)
+            {
+                TreeNode trNod = new TreeNode();
+                trNod.Text = subXmlNode.Name;
+                myTreeView.Nodes.Add(trNod);
+                TransXML(subXmlNode.ChildNodes, trNod);
+            }
+
+            return 0;
+
+        }
+        //遍历xml节点
+        private int TransXML(XmlNodeList xmlNodes,TreeNode trNode)
+        {
+            foreach (XmlNode xmlNode in xmlNodes)
+            {
+                TreeNode subTrNode = new TreeNode();
+                subTrNode.Text = xmlNode.Name;
+                trNode.Nodes.Add(subTrNode);
+
+                if(xmlNode.ChildNodes.Count>0)
+                {
+                    TransXML(xmlNode.ChildNodes, subTrNode);
+                }
+            }
+
             return 0;
         }
 
